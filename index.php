@@ -2,16 +2,27 @@
 <html>
 <head>
   <meta charset=utf-8>
-  <title>Calculator</title>
+  <title>Madlibs Game</title>
 </head>
 <body>
     <form method="get" action="index.php">
-        <h2>Please input two values:</h2>
-        Number 1: <input type="number" name="num1"><br><br>
-        Number 2: <input type="number" name="num2"><br><br>
-        <input type="submit" value="Submit Name">
+        <h2>Please input the following:</h2>
+        Color: <input type="text" name="color"><br><br>
+        Plural Noun: <input type="text" name="pluralNoun"><br><br>
+        Celebrity: <input type="text" name="celebrity"><br><br>
+        <input type="submit" value="Submit Inputs">
     </form>
     <br>
-    <?php echo $_GET["num1"] + $_GET["num2"]?>
+    <?php
+        $color = $_GET["color"];
+        $pluralNoun = $_GET["pluralNoun"];
+        $celebrity = $_GET["celebrity"];
+    
+    
+        echo "Roses are $color <br>";
+        echo "$pluralNoun are blue <br>";
+        echo "I love $celebrity <br>";
+    
+    ?>
 </body>
 </html>
