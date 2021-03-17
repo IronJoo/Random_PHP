@@ -2,45 +2,41 @@
 <html>
 <head>
   <meta charset=utf-8>
-  <title>Questionnaire</title>
+  <title>Calculator</title>
 </head>
 <body>
     <form method="post" action="index.php">
-        Are you male? <br>
-        Yes <input type="checkbox" name="male"> <br><br>
-        Are you tall? <br>
-        Yes <input type="checkbox" name="tall"> <br><br>
-        <input type="submit" value="Submit Selection">
+        First number: <input type="number" step="0.001" name="num1"><br><br>
+        Operator: <input type="text" name="op"><br><br>
+        Second number: <input type="number" name="num2"><br><br>
+        <input type="submit" value="Calculate">
     </form>
     <br>
     <?php
-      if($_POST['male'] == true){
-        $male = true;
-      }
-      else {$male = false;}
+      $num1 = $_POST["num1"];
+      $op = $_POST["op"];
+      $num2 = $_POST["num2"];
 
-      if($_POST['tall'] == true){
-        $tall = true;
-      }
-      else{$tall = false;}
-
-      if($male == true && $tall == true)
+      if($op == "+")
       {
-        echo "<h4>You are male and tall!</h4>";
+        echo $num1 + $num2;
       }
-      elseif ($male == true && $tall == false)
+      elseif($op == "-")
       {
-        echo "<h4>You are male and not tall!</h4>";
+        echo $num1 - $num2;
       }
-      elseif($male == false && $tall == true)
+      elseif($op == "/" || $op == ":")
       {
-        echo "<h4>You are not male and you are tall!</h4>";
+        echo $num1 / $num2;
+      }
+      elseif($op == "*" || $op == "x")
+      {
+        echo $num1 * $num2;
       }
       else
       {
-        echo "<h4>You are neither male nor tall!</h4>";
+        echo "Invalid number or operator.";
       }
-
     ?>
 </body>
 </html>
